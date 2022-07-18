@@ -1,3 +1,26 @@
 body {
+    width: 100vw;
+    height: 100vh;
     display: grid;
+}
+
+.gameboard {
+    display: grid;
+    border: solid 3px black;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-items: center;
+    width: 750px;
+    height: 750px;
+}
+
+.grid-square {
+    display: grid;
+    border: solid 3px black;
+    align-self: stretch;
+    justify-self: stretch;
+    align-content: center;
+    justify-content: center;
 }
