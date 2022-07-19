@@ -2,24 +2,32 @@ const module = (() => {
     const gameboard = (() => {
         const board = document.querySelector(".gameboard");
 
-        const squares = {
-            square1: "x",
-            square2: "o",
-            square3: "x",
-            square4: "o",
-            square5: "x",
-            square6: "o",
-            square7: "x",
-            square8: "o",
-            square9: "x",
-        }
+        let squares = [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+        ]
 
         for (i = 0; i < Object.keys(squares).length; i++) {
             let move = document.createElement("div");
             move.className = "grid-square";
+            move.id = i;
 
             board.appendChild(move);
-            move.innerText = Object.values(squares)[i];
+            move.innerText = Object.keys(squares)[i];
+
+            // Updates the squares[] property at the correlated index of the square clicked
+            move.addEventListener('click', (event) => {
+                squares.splice(Number(move.id), 1, "x");
+                move.innerText = Object.values(squares)[Number(move.id)];
+                console.log(squares);
+            });
         }
     })();
 
