@@ -22,11 +22,13 @@ const module = (() => {
                 move.id = i;
 
                 board.appendChild(move);
-                move.innerText = Object.keys(squares)[i];
+                move.innerText = squares[i];
 
                 // Updates the squares[] property at the correlated index of the square clicked
                 move.addEventListener('click', (event) => {
-                    if (turn % 2 == 0) {
+                    if (squares[Number(move.id)] != "") {
+                        return;
+                    } else if (turn % 2 == 0) {
                         squares.splice(Number(move.id), 1, "x");
                         move.innerText = squares[Number(move.id)];
                         turn++;
@@ -41,12 +43,18 @@ const module = (() => {
             }
 
             // Check for a winner of the game
-            const gameOver = (() => {
+            const gameOver = () => {
                 if (squares[0] == "x" && squares[1] == "x" && squares[2] == "x") {
                     alert("Player 1 Wins!");
                 } else if (squares[3] == "x" && squares[4] == "x" && squares[5] == "x") {
                     alert("Player 1 Wins!");
-                } else if (Object.values(squares)[6] == "x" && Object.values(squares)[7] == "x" && Object.values(squares)[8] == "x") {
+                } else if (squares[6] == "x" && squares[7] == "x" && squares[8] == "x") {
+                    alert("Player 1 Wins!");
+                } else if (squares[0] == "x" && squares[3] == "x" && squares[6] == "x") {
+                    alert("Player 1 Wins!");
+                } else if (squares[1] == "x" && squares[4] == "x" && squares[7] == "x") {
+                    alert("Player 1 Wins!");
+                } else if (squares[2] == "x" && squares[5] == "x" && squares[8] == "x") {
                     alert("Player 1 Wins!");
                 } else if (squares[0] == "x" && squares[4] == "x" && squares[8] == "x") {
                     alert("Player 1 Wins!");
@@ -58,12 +66,20 @@ const module = (() => {
                     alert("Player 2 Wins!");
                 } else if (squares[6] == "o" && squares[7] == "o" && squares[8] == "o") {
                     alert("Player 2 Wins!");
+                } else if (squares[0] == "o" && squares[3] == "o" && squares[6] == "o") {
+                    alert("Player 2 Wins!");
+                } else if (squares[1] == "o" && squares[4] == "o" && squares[7] == "o") {
+                    alert("Player 2 Wins!");
+                } else if (squares[2] == "o" && squares[5] == "o" && squares[8] == "o") {
+                    alert("Player 2 Wins!");
                 } else if (squares[0] == "o" && squares[4] == "o" && squares[8] == "o") {
                     alert("Player 2 Wins!");
                 } else if (squares[2] == "o" && squares[4] == "o" && squares[6] == "o") {
                     alert("Player 2 Wins!");
+                } else if (squares.includes("") == false) {
+                    alert("Tie!");
                 }
-            });
+            };
         })();
 
         return squares;
