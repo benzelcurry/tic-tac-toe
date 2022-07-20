@@ -44,6 +44,12 @@ body {
     border-radius: 10px;
 }
 
+.submission-container {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
 .announce-winner {
     justify-self: center;
     font-size: 30px;
@@ -75,7 +81,7 @@ body {
     font-weight: bold;
 }
 
-button {
+.reset {
     height: 50px;
     width: 100px;
     margin: 20px;
@@ -83,10 +89,10 @@ button {
     justify-self: center;
 }
 
-button:hover {
+.reset:hover {
     background-color: rgb(223, 222, 222);
 }
 
-button:active {
+.reset:active {
     background-color: rgb(173, 173, 173);
 }

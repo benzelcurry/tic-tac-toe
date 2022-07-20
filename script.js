@@ -5,6 +5,11 @@ const module = (() => {
         let winnerAlert = document.querySelector(".announce-winner");
         let turn = 0;
 
+        let players = {
+            player1: "",
+            player2: "",
+        }
+
         let squares = [
             "",
             "",
@@ -50,6 +55,7 @@ const module = (() => {
                     }
                 });
 
+                // Resets the grid display and squares[]
                 const resetGrid = (() => {
                     reset.addEventListener('click', () => {
                         console.log("Here");
