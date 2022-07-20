@@ -44,6 +44,12 @@ body {
     border-radius: 10px;
 }
 
+.announce-winner {
+    justify-self: center;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
 .gameboard {
     display: grid;
     border: solid 6px black;
@@ -67,4 +73,20 @@ body {
     min-height: 250px;
     font-size: 42px;
     font-weight: bold;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    margin: 20px;
+    border: solid 3px black;
+    justify-self: center;
+}
+
+button:hover {
+    background-color: rgb(223, 222, 222);
+}
+
+button:active {
+    background-color: rgb(173, 173, 173);
 }
