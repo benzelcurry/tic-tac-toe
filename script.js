@@ -5,10 +5,7 @@ const module = (() => {
         let winnerAlert = document.querySelector(".announce-winner");
         let turn = 0;
 
-        let players = {
-            player1: "",
-            player2: "",
-        }
+        let players = ["", ""];
 
         let squares = [
             "",
@@ -21,6 +18,23 @@ const module = (() => {
             "",
             "",
         ]
+
+        let playerNames = (() => {
+            let firstPlayer = document.querySelector("#player1-name");
+            let secondPlayer = document.querySelector("#player2-name");
+            let firstPlayerSubmit = document.querySelector(".player1-btn");
+            let secondPlayerSubmit = document.querySelector(".player2-btn");
+
+            firstPlayerSubmit.addEventListener('click', () => {
+                players[0] = firstPlayer.value;
+                firstPlayer.value = "";
+            });
+
+            secondPlayerSubmit.addEventListener('click', () => {
+                players[1] = secondPlayer.value;
+                secondPlayer.value = "";
+            })
+        })();
 
         const gameLogic = (() => {
             let winner = false;
