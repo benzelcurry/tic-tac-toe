@@ -1,6 +1,7 @@
 const module = (() => {
     const gameboard = (() => {
         const board = document.querySelector(".gameboard");
+        let turn = 0;
 
         let squares = [
             "",
@@ -24,12 +25,29 @@ const module = (() => {
 
             // Updates the squares[] property at the correlated index of the square clicked
             move.addEventListener('click', (event) => {
-                squares.splice(Number(move.id), 1, "x");
-                move.innerText = Object.values(squares)[Number(move.id)];
-                console.log(squares);
+                if (turn % 2 == 0) {
+                    squares.splice(Number(move.id), 1, "x");
+                    move.innerText = Object.values(squares)[Number(move.id)];
+                    turn++;
+                    console.log(squares)
+                } else {
+                    squares.splice(Number(move.id), 1, "o");
+                    move.innerText = Object.values(squares)[Number(move.id)];
+                    turn++;
+                    console.log(squares)
+                }
             });
         }
+
+        return squares;
     })();
+
+    const player = (name) => {
+        return name;
+    }
+
+    const player1 = player('ben');
+    const player2 = player('sam');
 
     return {
         gameboard: gameboard,
